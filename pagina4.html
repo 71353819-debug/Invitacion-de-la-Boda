@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Programa del Día</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: titulos;
+      background: linear-gradient(to bottom, #efe2d1, #f8f4ef);
+      color: #3b2b23;
+      min-height: 100vh;
+    }
+
+    @font-face {
+      font-family: titulos;
+      src: url(/letras/Handlee-Regular.ttf);
+    }
+
+    .programa {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 80px 20px;
+    }
+
+    .programa h2 {
+      text-align: center;
+      font-size: 2.8rem;
+      color: #8c5e34;
+      margin-bottom: 50px;
+    }
+
+    /* Línea de tiempo */
+    .timeline {
+      position: relative;
+      margin: 40px 0;
+      padding-left: 40px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 20px;
+      width: 3px;
+      height: 100%;
+      background: #c8a57b;
+      border-radius: 3px;
+    }
+
+    .evento {
+      position: relative;
+      margin-bottom: 40px;
+      padding-left: 30px;
+    }
+
+    .evento::before {
+      content: "";
+      position: absolute;
+      left: -5px;
+      top: 5px;
+      width: 14px;
+      height: 14px;
+      background: #a67c52;
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px #fdf6ef;
+    }
+
+    .hora {
+      font-weight: bold;
+      color: #7b5633;
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+    }
+
+    .titulo {
+      font-size: 1.4rem;
+      color: #513620;
+      margin-bottom: 5px;
+    }
+
+    .descripcion {
+      font-size: 1rem;
+      color: #5e4a3a;
+      line-height: 1.6;
+    }
+
+    /* Animación suave */
+    .evento {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: aparecer 0.8s ease forwards;
+    }
+
+    .evento:nth-child(1) { animation-delay: 0.2s; }
+    .evento:nth-child(2) { animation-delay: 0.4s; }
+    .evento:nth-child(3) { animation-delay: 0.6s; }
+    .evento:nth-child(4) { animation-delay: 0.8s; }
+    .evento:nth-child(5) { animation-delay: 1s; }
+
+    @keyframes aparecer {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Nota final */
+    .nota {
+      margin-top: 60px;
+      background: #fff8ef;
+      border-left: 5px solid #a67c52;
+      padding: 25px;
+      border-radius: 10px;
+      font-style: italic;
+      color: #5b3f26;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Botón siguiente */
+    .btn-next {
+      display: block;
+      width: fit-content;
+      margin: 50px auto 0;
+      padding: 12px 30px;
+      background: #a67c52;
+      color: white;
+      border-radius: 25px;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn-next:hover {
+      background: #8c6239;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <section class="programa">
+    <h2>Programa del Día 🕊️</h2>
+
+    <div class="timeline">
+      <div class="evento">
+        <div class="hora">3:30 PM</div>
+        <div class="titulo">Llegada de los Invitados</div>
+        <div class="descripcion">Recepción con música suave y bebidas refrescantes en los jardines de la hacienda.</div>
+      </div>
+
+      <div class="evento">
+        <div class="hora">4:00 PM</div>
+        <div class="titulo">Ceremonia</div>
+        <div class="descripcion">Intercambio de votos bajo el arco floral, acompañado de música en vivo.</div>
+      </div>
+
+      <div class="evento">
+        <div class="hora">5:00 PM</div>
+        <div class="titulo">Sesión de Fotos</div>
+        <div class="descripcion">Capturaremos los momentos más hermosos junto a nuestros seres queridos.</div>
+      </div>
+
+      <div class="evento">
+        <div class="hora">8:00 PM</div>
+        <div class="titulo">Cena y Brindis</div>
+        <div class="descripcion">Disfrutaremos una cena especial al aire libre, seguida de brindis y palabras de amor.</div>
+      </div>
+
+      <div class="evento">
+        <div class="hora">10:00 PM</div>
+        <div class="titulo">Baile y Fiesta</div>
+        <div class="descripcion">La pista se abre con nuestro primer baile, y la noche continúa con música, risas y celebración.</div>
+      </div>
+    </div>
+
+    <div class="nota">
+      💫 Sugerencia: Lleva zapatos cómodos y prepárate para disfrutar una noche mágica bajo las estrellas.
+    </div>
+
+    <a href="pagina5.html" class="btn-next">Siguiente ➜</a>
+  </section>
+
+</body>
+</html>

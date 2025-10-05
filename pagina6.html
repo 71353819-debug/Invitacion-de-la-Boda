@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Código de Vestimenta</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(180deg, #d6bfa5, #bfa087);
+      color: #3a2a1a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      color: #4b3b2b;
+      font-family: "Handlee", cursive;
+    }
+
+    p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      line-height: 1.6;
+      margin: 0 auto 40px auto;
+    }
+
+    .vestimenta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      width: 90%;
+      max-width: 1000px;
+      margin-top: 30px;
+    }
+
+    .tarjeta {
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .tarjeta:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .tarjeta img {
+      width: 100%;
+      height: 600px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      color: #5b3e28;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: left;
+    }
+
+    li {
+      font-size: 1rem;
+      margin-bottom: 8px;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    li::before {
+      content: "•";
+      color: #a67c52;
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    .nota {
+      margin-top: 50px;
+      font-style: italic;
+      color: #5b4636;
+      font-size: 1.1rem;
+      max-width: 700px;
+    }
+
+    .btn-volver {
+      margin-top: 50px;
+      display: inline-block;
+      padding: 12px 25px;
+      background: #a67c52;
+      color: white;
+      border-radius: 25px;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn-volver:hover {
+      background: #8c6239;
+      transform: scale(1.05);
+    }
+
+    @font-face {
+      font-family: "Handlee";
+      src: url("/letras/Handlee-Regular.ttf");
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Código de Vestimenta</h1>
+  <p>
+    Queremos que te sientas cómodo y elegante al mismo tiempo.  
+    Aquí te dejamos una guía para vestir acorde a la ocasión 💫
+  </p>
+
+  <div class="vestimenta">
+    <div class="tarjeta">
+      <img src="/imagenesboda/codvestimentaV.jpg" alt="Código de vestimenta hombre" height="500px">
+      <h2>Caballeros</h2>
+      <ul>
+        <li>Traje formal en tonos oscuros o neutros.</li>
+        <li>Camisa blanca o pastel.</li>
+        <li>Corbata o moño opcional, pero elegante.</li>
+        <li>Zapatos de vestir negros o marrones.</li>
+        <li>Evitar jeans, zapatillas deportivas o polos.</li>
+      </ul>
+    </div>
+
+    <div class="tarjeta">
+      <img src="/imagenesboda/codvestimentaD.jpg" alt="Código de vestimenta mujer">
+      <h2>Damas</h2>
+      <ul>
+        <li>Vestido largo o midi en tonos suaves o pasteles.</li>
+        <li>Maquillaje natural y peinado elegante.</li>
+        <li>Tacones o sandalias finas.</li>
+        <li>Accesorios discretos y elegantes.</li>
+        <li>Evitar el color blanco (reservado para la novia 🤍).</li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="nota">
+    🌿 El evento será al aire libre, así que te recomendamos llevar algo ligero pero sofisticado.
+  </p>
+
+  <a href="pagina7.html" class="btn-volver">siguiente ➜</a>
+
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Nuestra Historia</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: titulos;
+      background: linear-gradient(to bottom right, #f6efe8, #eaddcf);
+      color: #333;
+      letter-spacing: 2px;
+    }
+
+@font-face {
+  font-family: titulos;
+  src: url(/letras/Handlee-Regular.ttf);
+}
+
+    .historia {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 80px 20px 140px; /* espacio extra abajo para el botón */
+      position: relative;
+    }
+
+    .historia h2 {
+      text-align: center;
+      font-size: 2.8rem;
+      margin-bottom: 60px;
+      color: #a67c52;
+    }
+
+    /* Línea central */
+    .linea {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: #a67c52;
+      transform: translateX(-50%);
+    }
+
+    /* Eventos */
+    .evento {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin: 60px 0;
+      position: relative;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+
+    .evento.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .evento:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .evento::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 20px;
+      background: white;
+      border: 3px solid #a67c52;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .texto {
+      width: 45%;
+      padding: 25px;
+      background: white;
+      border-radius: 14px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    .texto h3 {
+      margin-top: 0;
+      color: #8c6239;
+      font-size: 1.3rem;
+    }
+
+    .texto p {
+      margin: 10px 0 0;
+      line-height: 1.6;
+    }
+
+    /* Botón siguiente */
+    .btn-next {
+      display: inline-block;
+      background: #a67c52;
+      color: white;
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 30px;
+      font-size: 1rem;
+      margin-top: 40px;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn-next:hover {
+      background: #8c6239;
+      transform: scale(1.05);
+    }
+.boton-contenedor {
+  position: absolute;
+  bottom: 40px; /* espacio desde el fondo */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+  </style>
+</head>
+<body>
+
+  <section class="historia">
+    <h2>Nuestra Historia 💕</h2>
+    <div class="linea"></div>
+
+    <div class="evento">
+      <div class="texto">
+        <h3>2017 · El Destino Nos Cruzó</h3>
+        <p>Todo comenzó con una simple coincidencia: un grupo de amigos en común, una tarde cualquiera, y una sonrisa que lo cambió todo.</p>
+      </div>
+    </div>
+
+    <div class="evento">
+      <div class="texto">
+        <h3>2018 · Primer Encuentro</h3>
+        <p>En aquel café del centro, entre nervios y risas, descubrimos que teníamos más en común de lo que imaginábamos.</p>
+      </div>
+    </div>
+
+    <div class="evento">
+      <div class="texto">
+        <h3>2019 · La Primera Aventura</h3>
+        <p>Un viaje improvisado a la playa se convirtió en uno de nuestros recuerdos más hermosos: arena en los pies y promesas en el corazón.</p>
+      </div>
+    </div>
+
+    <div class="evento">
+      <div class="texto">
+        <h3>2020 · Juntos en Todo</h3>
+        <p>La vida nos puso a prueba, pero aprendimos que juntos somos más fuertes. Cada día fue una oportunidad para crecer como pareja.</p>
+      </div>
+    </div>
+
+    <div class="evento">
+      <div class="texto">
+        <h3>2022 · Nuestro Hogar</h3>
+        <p>Decidimos dar un gran paso: nuestro primer hogar. Un lugar lleno de amor, risas y sueños compartidos.</p>
+      </div>
+    </div>
+
+    <div class="evento">
+      <div class="texto">
+        <h3>2024 · El Sí Más Importante</h3>
+        <p>Bajo las estrellas, con el corazón latiendo más fuerte que nunca, llegó la pregunta... y la respuesta que lo cambió todo: ¡Sí, quiero!</p>
+      </div>
+    </div>
+
+    <div class="evento">
+      <div class="texto">
+        <h3>2025 · El Gran Día</h3>
+        <p>Hoy celebramos no solo una boda, sino la promesa de toda una vida juntos. Y queremos que seas parte de este capítulo inolvidable.</p>
+      </div>
+    </div>
+
+    <!-- Botón siguiente -->
+   <div class="boton-contenedor">
+  <a href="pagina3.html" target="contenido" class="btn-next">💍 Ver detalles</a>
+</div>
+  </section>
+
+  <script>
+    // Animaciones al hacer scroll
+    const eventos = document.querySelectorAll('.evento');
+
+    function mostrarEventos() {
+      const trigger = window.innerHeight * 0.8; 
+      eventos.forEach(evento => {
+        const top = evento.getBoundingClientRect().top;
+        if (top < trigger) {
+          evento.classList.add('visible');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', mostrarEventos);
+    mostrarEventos();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Sitio con música persistente</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: auto; /* el scroll ahora es global */
+      font-family: titulos;
+    }
+
+@font-face {
+  font-family: titulos;
+  src: url(/letras/Handlee-Regular.ttf);
+}
+
+  /* Barra de navegación */
+nav {
+       background: rgba(255,255,255,0.8);
+        padding: 10px 20px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      position: sticky; /* se queda arriba al hacer scroll */
+      top: 0;
+      z-index: 10;
+    }
+
+  /* Links */
+  .nav-links {
+    display: flex;
+    gap: 25px;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    font-family: "Georgia", serif;
+    font-size: 1rem;
+    color: #333;
+    padding: 8px 5px;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    color: #a67c52; /* dorado elegante */
+    border-bottom: 2px solid #a67c52;
+  }
+
+  /* Botón de música */
+  .music-btn {
+    border: none;
+    background: #a67c52;
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+
+  .music-btn:hover {
+    background: #8c6239;
+    transform: scale(1.1);
+  }
+
+    /* Contenedor iframe */
+    iframe[name="contenido"] {
+  width: 100%;
+  height: calc(100vh - 60px); /* ajusta según el alto real del nav */
+  border: none;
+  display: block;
+}
+  </style>
+</head>
+<body>
+
+  <!-- Menú con links a la izquierda y botón a la derecha -->
+  <nav>
+    <div class="nav-links">
+      <a href="pagina1.html" target="contenido">Inicio</a>
+      <a href="pagina2.html" target="contenido">Historia</a>
+      <a href="pagina3.html" target="contenido">Detalles</a>
+      <a href="pagina4.html" target="contenido">Programa</a>
+      <a href="pagina5.html" target="contenido">Confirmación</a>
+      <a href="pagina6.html" target="contenido">vestimenta</a>
+      <a href="pagina7.html" target="contenido">agradecimiento</a>
+      
+    </div>
+    <button id="playPause" class="music-btn">⏸ </button>
+  </nav>
+
+  <!-- Contenedor de páginas -->
+  <iframe id="contenido" name="contenido" src="pagina1.html"></iframe>
+
+  <!-- 🎵 Audio oculto -->
+  <audio id="musica" autoplay loop>
+    <source src="Manuel Medrano - Bajo El Agua (Video Oficial) - Manuel Medrano.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio.
+  </audio>
+
+  <script>
+    const musica = document.getElementById("musica");
+    const playPauseBtn = document.getElementById("playPause");
+
+    playPauseBtn.addEventListener("click", () => {
+      if (musica.paused) {
+        musica.play();
+        playPauseBtn.textContent = "⏸ ";
+      } else {
+        musica.pause();
+        playPauseBtn.textContent = "▶ ";
+      }
+    });
+
+   
+  </script>
+</body>
+</html>

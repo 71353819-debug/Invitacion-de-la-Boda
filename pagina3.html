@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Detalles del Evento</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: titulos;
+      background: linear-gradient(to bottom right, #f6efe8, #eaddcf);
+      color: #3c2f2f;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @font-face {
+      font-family: titulos;
+      src: url(/letras/Handlee-Regular.ttf);
+    }
+
+    .detalles {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 20px 60px; /* deja espacio antes del botón */
+      text-align: center;
+      flex: 1;
+    }
+
+    .detalles h2 {
+      font-size: 2.8rem;
+      color: #8c5e34;
+      margin-bottom: 40px;
+      letter-spacing: 1px;
+    }
+
+    .tarjetas {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .tarjeta {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 18px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      padding: 30px;
+      width: 280px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(166, 124, 82, 0.2);
+    }
+
+    .tarjeta:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .tarjeta h3 {
+      color: #a67c52;
+      margin-bottom: 12px;
+      font-size: 1.4rem;
+    }
+
+    .tarjeta p {
+      margin: 0;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    /* Mapa */
+    .mapa {
+      margin-top: 60px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    iframe {
+      width: 100%;
+      height: 420px;
+      border: none;
+    }
+
+    /* Notas especiales */
+    .nota {
+      margin-top: 50px;
+      background: rgba(255, 248, 236, 0.95);
+      border-left: 5px solid #a67c52;
+      padding: 25px;
+      font-style: italic;
+      color: #5e4327;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+     
+    /* Botón siguiente */
+    .btn-next {
+      display: inline-block;
+      background: #a67c52;
+      color: white;
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 30px;
+      font-size: 1rem;
+      margin-top: 20px;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn-next:hover {
+      background: #8c6239;
+      transform: scale(1.05);
+    }
+
+    /* Contenedor del botón al final */
+    .boton-contenedor {
+      text-align: center;
+      margin: 40px 0 60px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <section class="detalles">
+    <h2>Detalles del Evento ✨</h2>
+
+    <div class="tarjetas">
+      <div class="tarjeta">
+        <h3>📅 Fecha</h3>
+        <p>12 de Diciembre, 2025</p>
+      </div>
+
+      <div class="tarjeta">
+        <h3>🕓 Hora</h3>
+        <p>Ceremonia: 4:00 PM</p>
+        <p>Recepción: 6:00 PM</p>
+      </div>
+
+      <div class="tarjeta">
+        <h3>📍 Lugar</h3>
+        <p>Hacienda Los Álamos</p>
+        <p>Av. del Sol 321, Lima, Perú</p>
+      </div>
+    </div>
+
+    <div class="mapa">
+     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3899.0605095256524!2d-76.88926242580645!3d-12.244182245606149!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105bc44f954941d%3A0x4b5844296161316a!2sHacienda%20Los%20Alamos%20de%20Pachac%C3%A1mac!5e0!3m2!1ses!2spe!4v1759630153265!5m2!1ses!2spe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <div class="nota">
+      🌿 Te recomendamos llegar 20 minutos antes para disfrutar la ceremonia con calma.  
+      Habrá estacionamiento y servicio de transporte desde el hotel central.
+    </div>
+  </section>
+
+  <!-- Botón siguiente centrado al final -->
+  <div class="boton-contenedor">
+    <a href="pagina4.html" target="contenido" class="btn-next">🕐 programa</a>
+  </div>
+
+</body>
+</html>

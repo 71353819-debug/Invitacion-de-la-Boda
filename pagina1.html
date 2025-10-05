@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Invitación Boda</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Georgia", serif;
+       background: linear-gradient(to bottom right, #f6efe8, #eaddcf);
+      color: #333;
+      scroll-behavior: smooth; /* scroll suave */
+    }
+
+    /* Portada */
+    .portada {
+      height: 120vh;
+      background: url('/imagenes/Célébration\ dun\ mariage\ et\ noces\ danniversaire\ -\ Celinni.webp') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .portada::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+    }
+
+    .contenido {
+      position: relative;
+      z-index: 1;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .contenido h1 {
+      font-size: 4.5rem;
+      margin: 0 0 10px;
+      letter-spacing: 2px;
+    }
+
+    .contenido p {
+      font-size: 1.5rem;
+      margin: 5px 0;
+    }
+
+    /* Botón */
+    .btn-next {
+      margin-top: 20px;
+      display: inline-block;
+      padding: 12px 25px;
+      background: #a67c52;
+      color: white;
+      border-radius: 25px;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn-next:hover {
+      background: #8c6239;
+      transform: scale(1.05);
+    }
+
+    /* Contador */
+    .contador {
+      font-size: 3.2rem;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    
+
+    /* Animaciones */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SECCIÓN 1: PORTADA -->
+  <section class="portada" id="portada">
+    <div class="contenido">
+      <h1>¡Nos Casamos!</h1>
+      <p>María & Juan</p>
+      <p>12 de Diciembre, 2025</p>
+<br><br>
+      <!-- Contador -->
+      <div class="contador" id="contador"></div>
+<br><br>
+      <!-- Botón -->
+      <a href="pagina2.html" class="btn-next">Ver más</a>
+    </div>
+  
+  <script>
+    // === Contador de tiempo hasta la boda ===
+    const contador = document.getElementById("contador");
+    const fechaBoda = new Date("Dec 12, 2025 16:00:00").getTime();
+
+    function actualizarContador() {
+      const ahora = new Date().getTime();
+      const diferencia = fechaBoda - ahora;
+
+      if (diferencia <= 0) {
+        contador.innerHTML = "¡Hoy es el gran día! 🎉💍";
+        return;
+      }
+
+      const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+      contador.innerHTML = `${dias} días ${horas}h ${minutos}m ${segundos}s`;
+    }
+
+    setInterval(actualizarContador, 1000);
+    actualizarContador();
+  </script>
+
+</body>
+</html>

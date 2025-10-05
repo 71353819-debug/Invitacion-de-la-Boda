@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Confirmación e Invitados</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: titulos;
+      background: linear-gradient(180deg, #f2e6d9, #e5d0b6);
+      color: #4b3b2b;
+      text-align: center;
+      padding: 50px 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+@font-face {
+  font-family: titulos;
+  src: url(/letras/Handlee-Regular.ttf);
+}
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      max-width: 650px;
+      margin: 10px auto 40px auto;
+      line-height: 1.6;
+    }
+
+    /* 📝 Formulario */
+    form {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(6px);
+      padding: 25px 30px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+      margin-bottom: 50px;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      margin-top: 15px;
+      font-weight: 600;
+      font-size: 1rem;   
+      color: #3d2f21;
+    }
+
+    input, select, textarea {
+      width: 90%;       
+      padding: 10px 12px;
+      margin-top: 6px;
+      border: 1px solid #c7b29a;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-family: "Poppins", sans-serif;
+      background: #fffaf3;
+    }
+
+    textarea {
+      resize: none;
+      height: 80px;
+    }
+
+    button {
+      margin-top: 25px;
+      background: #a67c52;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+      background: #8c6239;
+      transform: scale(1.05);
+    }
+
+    /* 📜 Lista de invitados */
+    .invitados {
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(6px);
+      border-radius: 20px;
+      padding: 20px 30px;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin-bottom: 50px;
+    }
+
+    .invitados h3 {
+      margin-bottom: 15px;
+      color: #5a4635;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li {
+      background: #fffaf3;
+      margin: 8px 0;
+      padding: 10px 15px;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      color: #3d2f21;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+
+    /* 🎁 Lista de regalos */
+    .regalos {
+      background: rgba(255,255,255,0.85);
+      border-radius: 20px;
+      padding: 25px 30px;
+      max-width: 700px;
+      width: 100%;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .regalos h3 {
+      margin-bottom: 20px;
+      color: #5a4635;
+    }
+
+    .gift-item {
+      text-align: left;
+      background: #fffaf3;
+      padding: 15px 20px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+
+    .gift-item button {
+      padding: 8px 18px;
+      border-radius: 20px;
+      background: #a67c52;
+      border: none;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .gift-item button:hover {
+      background: #8c6239;
+    }
+
+    footer {
+      margin-top: 50px;
+      font-style: italic;
+      color: #5c4a3a;
+    }
+
+    .btn-next {
+      margin-top: 40px;
+      display: inline-block;
+      padding: 12px 25px;
+      background: #a67c52;
+      color: white;
+      border-radius: 25px;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn-next:hover {
+      background: #8c6239;
+      transform: scale(1.05);
+    }
+
+.XD {
+  background-size: cover;
+  margin: auto;
+  width: 60px;
+}
+/* disimular el bordes de las imagenes */
+
+img {
+  border-radius: 15px;        /* esquinas suaves */
+  mix-blend-mode: multiply;   /* mezcla con el fondo */
+  background: transparent;
+  object-fit: cover;
+}
+
+/* 📱 Sección del QR */
+.qr-section {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(6px);
+  border-radius: 20px;
+  padding: 30px 40px;
+  text-align: center;
+  margin-top: 40px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+.qr-section h3 {
+  color: #5a4635;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.qr-section p {
+  color: #3d2f21;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.qr-img {
+  width: 160px;
+  height: 160px;
+  border-radius: 20px;
+  background: white;
+  padding: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+
+  </style>
+</head>
+<body>
+
+  <h2>Confirma tu Asistencia 💌</h2>
+  <p>
+    Tu presencia hará de este día algo aún más especial.  
+    Por favor, confirma si podrás acompañarnos y revisa la lista de invitados y regalos.
+  </p>
+
+  <!-- 📝 Formulario de confirmación -->
+  <form id="rsvpForm">
+    <label for="nombre">Nombre completo</label>
+    <input type="text" id="nombre" name="nombre" required />
+
+    <label for="asistencia">¿Podrás asistir?</label>
+    <select id="asistencia" name="asistencia" required>
+      <option value="">Selecciona una opción</option>
+      <option value="Sí">Sí, con mucho gusto</option>
+      <option value="No">No podré asistir</option>
+    </select>
+
+    <label for="acompanantes">Número de acompañantes</label>
+    <input type="number" id="acompanantes" name="acompanantes" min="0" max="5" />
+
+    <button type="submit">Enviar Confirmación</button>
+  </form>
+
+  <!-- 📜 Lista de invitados -->
+  <div class="invitados">
+    <h3>Invitados Confirmados</h3>
+    <ul id="listaInvitados">
+      <li>María Fernández + 1</li>
+      <li>José Ramírez</li>
+      <li>Lucía y Mateo Torres</li>
+    </ul>
+  </div>
+
+  <!-- 🎁 Lista de regalos o donaciones -->
+    <label>N°</label>
+    <input type="text" id="numeroBuscado" class="XD">
+    <button onclick="buscar()">BUSCAR</button>
+    <table>
+        <tr>            
+            <td>N°</td>
+            <td>REGALO</td>
+            <td>ESTADO</td>
+            <td>IMAGEN</td>
+        </tr>
+        <tr>
+            <td id="numeroBuscadoNumero"></td>
+            <td id="numeroBuscadoRegalo"></td>
+            <td id="numeroBuscadoEstado"></td>
+            <td id="numeroBuscadoImagen"></td>
+        </tr>        
+    </table>
+    <hr><br><br>
+    <table >
+        <tr>
+            <td>N°</td>
+            <td>REGALO</td>
+            <td>ESTADO</td>
+            <td>IMAGEN</td>
+        </tr>
+        <tr>
+            <td id="numero01"></td>
+            <td id="regalo01"></td>
+            <td id="estado01"></td>
+            <td id="imagen01"></td>
+        </tr>
+        <tr>
+            <td id="numero02"></td>
+            <td id="regalo02"></td>
+            <td id="estado02"></td>
+            <td id="imagen02"></td>            
+        </tr>
+        <tr>
+            <td id="numero03"></td>
+            <td id="regalo03"></td>
+            <td id="estado03"></td>            
+            <td id="imagen03"></td>
+        </tr>
+        <tr>
+            <td id="numero04"></td>
+            <td id="regalo04"></td>
+            <td id="estado04"></td>            
+            <td id="imagen04"></td>
+        </tr>
+        <tr>
+            <td id="numero05"></td>
+            <td id="regalo05"></td>
+            <td id="estado05"></td>            
+            <td id="imagen05"></td>
+        </tr>
+
+        <tr>
+            <td id="numero06"></td>
+            <td id="regalo06"></td>
+            <td id="estado06"></td>            
+            <td id="imagen06"></td>
+        </tr>
+
+        <tr>
+            <td id="numero07"></td>
+            <td id="regalo07"></td>
+            <td id="estado07"></td>            
+            <td id="imagen07"></td>
+        </tr>
+
+        <tr>
+            <td id="numero08"></td>
+            <td id="regalo08"></td>
+            <td id="estado08"></td>            
+            <td id="imagen08"></td>
+        </tr>        
+
+        <tr>
+            <td id="numero09"></td>
+            <td id="regalo09"></td>
+            <td id="estado09"></td>            
+            <td id="imagen09"></td>
+        </tr>
+        
+        <tr>
+            <td id="numero10"></td>
+            <td id="regalo10"></td>
+            <td id="estado10"></td>            
+            <td id="imagen10"></td>
+        </tr>
+
+    </table>
+
+      <!-- 🧾 Código QR -->
+  <div class="qr-section">
+    <h3>Escanea el Código QR ⬛</h3>
+    <p>se aceptan donanciones.</p>
+    <img src="/imagenes/qr.jpeg" alt="Código QR" class="qr-img">
+  </div>
+
+  <footer>
+    ¡Gracias por ser parte de nuestra historia! 🌸  
+  </footer>
+
+  <a href="pagina6.html" class="btn-next">Ver siguiente</a>
+
+  <script>
+            const regalos = {
+            regalo01: [1,"Refrigeradora","libre", '/imagenes/Refrigerador eléctrico 2_150$.jpeg'],            
+            regalo02: [2,"Televisor","Reservado",'/imagenes/TV.jpeg'],
+            regalo03: [3,"Cocina","libre",'/imagenes/Cocina.jpeg'],
+            regalo04: [4,"Microhondas","reservado", '/imagenes/Microondas.jpeg' ],
+            regalo05: [5,"HyundaiElantra","libre",'/imagenes/HyundaiElantra.jpeg'],
+            regalo06: [6,"Departamento","libre","/imagenes/Departamento.jpeg"],            
+            regalo07: [7,"Amazon Kindle Scribe","Reservado",'/imagenes/Amazon Kindle Scribe.avif'],
+            regalo08: [8," Batidora manual","libre",'/imagenes/Batidora manual.webp'],
+            regalo09: [9,"Set de 4 cuchillos con mango de madera","reservado",'/imagenes/Set de 4 cuchillos con mango de madera.jpg'],
+            regalo10: [10,"Frazada matrimonial de poliéster","libre",'/imagenes/Frazada matrimonial de poliéster.webp'],
+
+        };
+        document.getElementById("numero01").innerHTML=regalos.regalo01[0]
+        document.getElementById("regalo01").innerHTML=regalos.regalo01[1]
+        document.getElementById("estado01").innerHTML=regalos.regalo01[2]
+        document.getElementById("imagen01").innerHTML=`<img src="${regalos.regalo01[3]}" width="80" alt="Regalo">`
+
+        document.getElementById("numero02").innerHTML=regalos.regalo02[0]
+        document.getElementById("regalo02").innerHTML=regalos.regalo02[1]
+        document.getElementById("estado02").innerHTML=regalos.regalo02[2]
+        document.getElementById("imagen02").innerHTML=`<img src="${regalos.regalo02[3]}" width="80" alt="Regalo">`
+
+        document.getElementById("numero03").innerHTML=regalos.regalo03[0]
+        document.getElementById("regalo03").innerHTML=regalos.regalo03[1]
+        document.getElementById("estado03").innerHTML=regalos.regalo03[2]
+        document.getElementById("imagen03").innerHTML=`<img src="${regalos.regalo03[3]}" width="80" alt="Regalo">`
+
+        document.getElementById("numero04").innerHTML=regalos.regalo04[0]
+        document.getElementById("regalo04").innerHTML=regalos.regalo04[1]
+        document.getElementById("estado04").innerHTML=regalos.regalo04[2]
+        document.getElementById("imagen04").innerHTML=`<img src="${regalos.regalo04[3]}" width="80" alt="Regalo">`
+
+        document.getElementById("numero05").innerHTML=regalos.regalo05[0]
+        document.getElementById("regalo05").innerHTML=regalos.regalo05[1]
+        document.getElementById("estado05").innerHTML=regalos.regalo05[2]
+        document.getElementById("imagen05").innerHTML=`<img src="${regalos.regalo05[3]}" width="80" alt="Regalo">`
+
+        document.getElementById("numero06").innerHTML=regalos.regalo06[0]
+        document.getElementById("regalo06").innerHTML=regalos.regalo06[1]
+        document.getElementById("estado06").innerHTML=regalos.regalo06[2]
+        document.getElementById("imagen06").innerHTML=`<img src="${regalos.regalo06[3]}" width="80" alt="Regalo">`
+
+        document.getElementById("numero07").innerHTML=regalos.regalo07[0]
+        document.getElementById("regalo07").innerHTML=regalos.regalo07[1]
+        document.getElementById("estado07").innerHTML=regalos.regalo07[2]
+        document.getElementById("imagen07").innerHTML=`<img src="${regalos.regalo07[3]}" width="80" alt="Regalo">`
+
+        document.getElementById("numero08").innerHTML=regalos.regalo08[0]
+        document.getElementById("regalo08").innerHTML=regalos.regalo08[1]
+        document.getElementById("estado08").innerHTML=regalos.regalo08[2]
+        document.getElementById("imagen08").innerHTML=`<img src="${regalos.regalo08[3]}" width="80" alt="Regalo">`
+
+        document.getElementById("numero09").innerHTML=regalos.regalo09[0]
+        document.getElementById("regalo09").innerHTML=regalos.regalo09[1]
+        document.getElementById("estado09").innerHTML=regalos.regalo09[2]
+        document.getElementById("imagen09").innerHTML=`<img src="${regalos.regalo09[3]}" width="80" alt="Regalo">`
+
+        document.getElementById("numero10").innerHTML=regalos.regalo10[0]
+        document.getElementById("regalo10").innerHTML=regalos.regalo10[1]
+        document.getElementById("estado10").innerHTML=regalos.regalo10[2]
+        document.getElementById("imagen10").innerHTML=`<img src="${regalos.regalo10[3]}" width="80" alt="Regalo">`
+
+
+        function buscar(){
+            numeroBuscar = document.getElementById("numeroBuscado").value
+            numoroBuscar
+        }
+
+    const form = document.getElementById("rsvpForm");
+    const lista = document.getElementById("listaInvitados");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const nombre = form.nombre.value.trim();
+      const asistencia = form.asistencia.value;
+      const acompanantes = form.acompanantes.value || 0;
+
+      if (asistencia === "Sí") {
+        const nuevo = document.createElement("li");
+        nuevo.textContent = `${nombre} + ${acompanantes}`;
+        lista.appendChild(nuevo);
+      }
+
+      alert("¡Gracias por confirmar tu asistencia! ❤️");
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>
